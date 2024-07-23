@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    <div class="bg-red-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{doctorcount}}</h3>
+          <h4 class="text-lg">Total Doctor</h4>
+        </div>
+        <img src="{% static 'image\doctor-3959.svg' %}" class="h-24 w-24" alt="Doctor Icon">
+      </div>
+      <p class="mt-4">Approval Required: {{pendingdoctorcount}}</p>
+    </div>
+    
+    <div class="bg-green-500 p-4 text-white">
+      <div class="flex justify-between">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{patientcount}}</h3>
+          <h4 class="text-lg">Total Patient</h4>
+        </div>
+        <img src="{% static 'image\face-mask-3928.svg' %}" class="h-24 w-24" alt="Patient Icon">
+      </div>
+      <p class="mt-4">Wants to Admit: {{pendingpatientcount}}</p>
+    </div>
+    <div class="bg-blue-500 p-4 text-white">
+      <div class="flex justify-between">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{appointmentcount}}</h3>
+          <h4 class="text-lg">Total Appointment</h4>
+        </div>
+        <img src="{% static 'image\booked-calendar-sign-and-green-check-mark-16254.svg' %}" class="h-24 w-24" alt="Appointment Icon">
+      </div>
+      <p class="mt-4">Approve Appointments: {{pendingappointmentcount}}</p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+{% extends 'homebase.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="flex bg-gray-100 items-center justify-center">
+    <a href="" class="transition-all duration-1000 bg-white m-5 p-4 relative z-40 group shadow-lg shadow-cyan-500/50">
+      <div class="py-2 px-9 relative">
+        <img src="{% static 'image/location-on-map-svgrepo-com.svg' %}" class="h-auto max-w-lg mx-auto w-24" />
+        <h3 class="mt-8 text-2xl font-bold text-black text-center">Office Address</h3>
+        <p class="mt-4 text-base text-gray-600 text-center">Suryabinayak, Bhaktapur, Nepal</p>
+      </div>
+    </a>
+
+    <a href="" class="transition-all duration-1000 bg-white m-5 p-4 relative z-40 group shadow-lg shadow-cyan-500/50">
+      <div class="py-2 px-9 relative">
+        <img src="{% static 'image/mobile-phone-smartphone-svgrepo-com.svg' %}" class="h-auto max-w-lg mx-auto w-24" />
+        <h3 class="mt-8 text-3xl font-bold text-black text-center">Phone Number</h3>
+        <p class="mt-4 text-base text-gray-600 text-center">+977-984-298-2385</p>
+      </div>
+    </a>
+    <a href="" class="transition-all duration-1000 bg-white m-5 p-4 relative z-40 group shadow-lg shadow-cyan-500/50">
+      <div class="py-2 px-9 relative">
+        <img src="{% static 'image/email-1-svgrepo-com.svg' %}" class="h-auto max-w-lg mx-auto w-24" />
+        <h3 class="mt-8 text-3xl font-bold text-black text-center">Email Address</h3>
+        <p class="mt-4 text-base text-gray-600 text-center">tamangbishal99@gmail.com</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="w-full bg-gray-800 h-screen">
+    <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div>
+    <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+      <div class="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
+        <p class="text-3xl font-bold leading-7 text-center text-white">Get In Touch With Us</p>
+        <form action="" method="post">
+          {% csrf_token %}
+          <div class="md:flex items-center mt-12">
+            <div class="w-full md:w-1/2 flex flex-col">
+              <label for="name" class="font-semibold leading-none text-gray-300">Name</label>
+              <input type="text" id="name" name="name" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" placeholder="Enter your name" required />
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
+              <label for="phone" class="font-semibold leading-none text-gray-300">Phone</label>
+              <input type="tel" id="phone" name="phone" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" placeholder="Enter your phone number" required />
+            </div>
+          </div>
+          <div class="md:flex items-center mt-8">
+            <div class="w-full flex flex-col">
+              <label for="subject" class="font-semibold leading-none text-gray-300">Subject</label>
+              <input type="text" id="subject" name="subject" class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded" placeholder="Enter the subject" required />
+            </div>
+          </div>
+          <div>
+            <div class="w-full flex flex-col mt-8">
+              <label for="message" class="font-semibold leading-none text-gray-300">Message</label>
+              <textarea id="message" name="message" type="text" class="h-40 text-base leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 bg-gray-800 border-0 rounded" placeholder="Enter your message" required></textarea>
+            </div>
+          </div>
+          <div class="flex items-center justify-center w-full">
+            <button type="submit" class="mt-9 font-semibold leading-none text-white py-4 px-10 bg-blue-700 rounded hover:bg-blue-600 focus:ring-2 focus:ring-offset-2 focus:ring-blue-700 focus:outline-none">
+              Send message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<br><br><br><br><br><br>
+{% endblock %}

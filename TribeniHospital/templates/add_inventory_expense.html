@@ -1,0 +1,33 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold text-center my-4">Add Inventory Expense</h1>
+  <div class="bg-white shadow-md rounded my-6 p-6">
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="mb-4">
+        <label for="item" class="block text-sm font-medium text-gray-700">Item</label>
+        <select name="item" id="item" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          {% for inventory_item in inventory_items %}
+          <option value="{{ inventory_item.id }}">{{ inventory_item.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+        <input type="number" name="amount" id="amount" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+      </div>
+      <div class="mb-4">
+        <label for="date_incurred" class="block text-sm font-medium text-gray-700">Date Incurred</label>
+        <input type="date" name="date_incurred" id="date_incurred" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+        <textarea name="description" id="description" rows="3" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
+      </div>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'doctor_base.html' %}
+{% block content %}
+<div class="container mx-auto">
+  <div class="bg-white shadow-md rounded my-6">
+    <div class="border-b p-4">
+      <h2 class="text-center text-2xl font-bold">Your Discharged Patient List</h2>
+    </div>
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Name</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Admit Date</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Release Date</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Symptoms</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Contact</th> 
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in dischargedpatients %}
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{p.patientName}}
+          </td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{p.admitDate}}
+          </td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{p.releaseDate}}
+          </td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{ p.symptoms }}
+          </td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{ p.mobile }}
+          </td> 
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{p.address}}
+          </td> 
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock content %}

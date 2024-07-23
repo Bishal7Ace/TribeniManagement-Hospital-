@@ -1,0 +1,166 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Tribeni Hospital</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@heroicons/react/outline.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  </head>
+
+  <body class="bg-gray-100">
+    <!-- partial:index.partial.html -->
+    <nav class="menu h-screen bg-blue-500 w-64 fixed top-0 left-0 z-50 outline-none">
+      <div class="smartphone-menu-trigger"></div>
+      <header class="avatar bg-gray-200 p-8">
+        <img src="{% static 'image\adminpropic.png' %}" class="w-20 h-20 rounded-full mx-auto mb-4" />
+        <h6 class="text-center text-gray-800">Receptionist</h6>
+        <h2 class="text-center text-gray-800">{{ request.user.first_name }}</h2>
+      </header>
+      <ul class="text-white">
+        <li tabindex="0" class="py-4">
+          <a href="{% url 'receptionist-dashboard' %}" class="px-4 flex items-center">
+            <img src="{% static 'image/analytics-4295.svg' %}" class="h-6 w-6 mr-2" alt="Dashboard">
+            Dashboard
+          </a>
+        </li>
+        <li tabindex="0" class="py-4">
+          <a href="{% url 'receptionist-patient' %}" class="px-4 flex items-center">
+            <img src="{% static 'image\face-mask-3928.svg' %}" class="h-6 w-6 mr-2" alt="Patient">
+            Patient
+          </a>
+        </li>
+        <li tabindex="0" class="py-4">
+          <a href="{% url 'receptionist-appointment' %}" class="px-4 flex items-center">
+            <img src="{% static 'image\booked-calendar-sign-and-green-check-mark-16254.svg' %}" class="h-6 w-6 mr-2" alt="Appointment">
+            Appointment
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="ml-64">
+      <!-- nav start -->
+      <div class="bg-blue-700">
+        <div class="max-w-7xl mx-auto px-4">
+          <nav class="flex items-center justify-between h-16" aria-label="Navbar">
+            <div class="flex items-center">
+              <img src="{% static 'image/Tribeni.png' %}" alt="Tribeni Hospital" class="h-20 w-auto" />
+              <a href="{% url 'receptionist-dashboard' %}" class="text-white text-xl font-bold">TRIBENI HOSPITAL</a>
+            </div>
+            <div class="flex items-center">
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="text-white ml-4">Logout</button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- nav end -->
+
+      <div class="bg-gray-100">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+      <div class="bg-gradient-to-r from-yellow-400 via-green-500 to-white-400 ">
+        <footer class="w-full text-gray-700 body-font bottom-0">
+          <div class="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+            <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+              <a class="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start"><img src="{% static 'image/Tribeni.png' %}" class="h-12 w-auto" /></a>
+              <p class="mt-2 text-sm font-bold text-gray-900">All Is Well.</p>
+              <div class="mt-4">
+                <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
+                  <a class="text-black cursor-pointer hover:text-yellow-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                  </a>
+
+                  <a class="ml-3 text-black cursor-pointer hover:text-yellow-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                  </a>
+                  <a class="ml-3 text-black cursor-pointer hover:text-yellow-500">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                      <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                      <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div class="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
+              <div class="w-full px-4 lg:w-1/4 md:w-1/2">
+                <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font"><u>About</u></h2>
+                <nav class="mb-10 list-none">
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Company</a>
+                  </li>
+
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Blog</a>
+                  </li>
+                </nav>
+              </div>
+              <div class="w-full px-4 lg:w-1/4 md:w-1/2">
+                <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font"><u>Support</u></h2>
+                <nav class="mb-10 list-none">
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Contact Support</a>
+                  </li>
+
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Release Updates</a>
+                  </li>
+                </nav>
+              </div>
+              <div class="w-full px-4 lg:w-1/4 md:w-1/2">
+                <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font"><u>Platform</u></h2>
+                <nav class="mb-10 list-none">
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Terms &amp; Privacy</a>
+                  </li>
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Pricing</a>
+                  </li>
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">FAQ</a>
+                  </li>
+                </nav>
+              </div>
+              <div class="w-full px-4 lg:w-1/4 md:w-1/2">
+                <h2 class="mb-3 text-sm font-medium tracking-widest text-gray-900 uppercase title-font"><u>Contact</u></h2>
+                <nav class="mb-10 list-none">
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">Send a Message</a>
+                  </li>
+
+                  <li class="mt-3">
+                    <a class="text-gray-900 cursor-pointer hover:text-yellow-500">+977 9842982385</a>
+                  </li>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white">
+            <div class="container px-5 py-4 mx-auto">
+              <p class="text-sm text-gray-700 capitalize xl:text-center">© 2020 All rights reserved</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>

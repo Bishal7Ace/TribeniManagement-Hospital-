@@ -1,0 +1,35 @@
+{% extends 'homebase.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+<!--- login page for patients  ---------->
+<form method="post" class="bg-gray-100">
+  {% csrf_token %}
+  <div class="container mx-auto px-4 py-8">
+    <div class="w-full max-w-md mx-auto">
+      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 class="text-center text-xl font-bold mb-4">Admin Login</h2>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+            Username
+          </label>
+          {% render_field form.username class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Username" %}
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+            Password
+          </label>
+          {% render_field form.password class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Password" %}
+        </div>
+        <button type="submit" class="btnSubmit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          Login
+        </button>
+        <div class="text-center mt-4">
+          <p class="text-gray-600 text-xs">Do not have an account? <a href="{% url 'patientsignup' %}" class="text-blue-500 hover:text-blue-700">Signup here</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

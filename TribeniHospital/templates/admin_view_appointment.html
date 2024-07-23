@@ -1,0 +1,41 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mx-auto">
+    <div class="bg-white shadow-md rounded my-6">
+      <div class="border-b p-4">
+        <h2 class="text-center text-2xl font-bold">Appointments</h2>
+      </div>
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Doctor Name</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Patient Name</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Description</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for a in appointments %}
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                {{a.doctorName}}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                {{a.patientName}}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                {{a.description}}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+                {{a.appointmentDate}}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'receptionist_base.html' %}
+{% load static %}
+{% block content %}
+<div class="py-8">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4 md:w-1/4">
+        <div class="flex rounded-lg shadow-lg overflow-hidden flex-col bg-gradient-to-br from-blue-500 to-blue-300">
+          <div class="flex-grow p-5">
+            <a href="{% url 'receptionist-view-patient' %}" class="text-white">
+              <h6 class="font-bold">Patient Record</h6>
+            </a>
+            <div class="flex justify-end mt-4">
+              <i class="fas fa-user-injured text-white text-4xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 md:w-1/4">
+        <div class="flex rounded-lg shadow-lg overflow-hidden flex-col bg-gradient-to-br from-green-500 to-green-300">
+          <div class="flex-grow p-5">
+            <a href="{% url 'receptionist-add-patient' %}" class="text-white">
+              <h6 class="font-bold">Admit Patient</h6>
+            </a>
+            <div class="flex justify-end mt-4">
+              <i class="fas fa-user-plus text-white text-4xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 md:w-1/4">
+        <div class="flex rounded-lg shadow-lg overflow-hidden flex-col bg-gradient-to-br from-pink-500 to-pink-300">
+          <div class="flex-grow p-5">
+            <a href="{% url 'receptionist-discharge-patient' %}" class="text-white">
+              <h6 class="font-bold">Discharge Patient</h6>
+            </a>
+            <div class="flex justify-end mt-4">
+              <i class="fas fa-eject text-white text-4xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

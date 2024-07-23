@@ -1,0 +1,29 @@
+{% extends 'admin_base.html' %}
+
+{% block content %}
+<div class="container mx-auto">
+  <h1 class="text-2xl font-bold text-center my-4">Inventory Items</h1>
+  <div class="bg-white shadow-md rounded my-6">
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Name</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Quantity</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Unit Price</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Date Added</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ item.name }}</td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ item.quantity }}</td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ item.unit_price }}</td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">{{ item.date_added }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

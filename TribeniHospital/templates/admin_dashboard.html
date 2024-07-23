@@ -1,0 +1,66 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+{%include 'admin_dashboard_cards.html'%}
+
+<div class="container mx-auto">
+    <div class="flex flex-wrap justify-center">
+      <div class="bg-white shadow-md rounded-lg overflow-hidden w-full md:w-5/12 m-2">
+        <div class="bg-blue-500 text-white py-2 px-4 text-center">
+          <h6 class="text-lg font-bold">Recent Doctors</h6>
+        </div>
+        <table class="table-auto w-full">
+          <thead>
+            <tr>
+              <th class="px-4 py-2">Name</th>
+              <th class="px-4 py-2">Department</th>
+              <th class="px-4 py-2">Contact</th>
+              <th class="px-4 py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for d in doctors %}
+            <tr>
+              <td class="border px-4 py-2">{{d.get_name}}</td>
+              <td class="border px-4 py-2">{{d.department}}</td>
+              <td class="border px-4 py-2">{{d.mobile}}</td>
+              <td class="border px-4 py-2">{% if d.status %}<span class="bg-blue-500 text-white px-2 py-1 rounded">Permanent</span>{% else %}<span class="bg-green-500 text-white px-2 py-1 rounded">On Hold</span>{% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="bg-white shadow-md rounded-lg overflow-hidden w-full md:w-5/12 m-2">
+        <div class="bg-blue-500 text-white py-2 px-4 text-center">
+          <h6 class="text-lg font-bold">Recent Patients</h6>
+        </div>
+        <table class="table-auto w-full">
+          <thead>
+            <tr>
+              <th class="px-4 py-2">Name</th>
+              <th class="px-4 py-2">Symptoms</th>
+              <th class="px-4 py-2">Contact</th>
+              <th class="px-4 py-2">Address</th>
+              <th class="px-4 py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in patients %}
+            <tr>
+              <td class="border px-4 py-2">{{p.get_name}}</td>
+              <td class="border px-4 py-2">{{p.symptoms}}</td>
+              <td class="border px-4 py-2">{{p.mobile}}</td>
+              <td class="border px-4 py-2">{{p.address}}</td>
+              <td class="border px-4 py-2">{% if p.status %}<span class="bg-blue-500 text-white px-2 py-1 rounded">Admitted</span>{% else %}<span class="bg-green-500 text-white px-2 py-1 rounded">On Hold</span>{% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+
+
+{% endblock content %}

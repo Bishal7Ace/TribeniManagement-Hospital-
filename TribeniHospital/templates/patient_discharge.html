@@ -1,0 +1,81 @@
+{% extends 'patient_base.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-100">
+<head>
+  <meta charset="utf-8">
+  <title>Hospital  Invoice</title>
+</head>
+
+<body>
+  <div class="max-w-4xl mx-auto p-8 border border-gray-200 shadow-md text-base leading-6 font-sans text-gray-700">
+    {% if is_discharged %}
+      <div class="pb-5">
+        <h1 class="text-4xl leading-5 text-gray-900 font-semibold">Tribeni Hospital</h1><br>
+        <p>Admit Date: {{ admitDate }}</p>
+        <p>Release Date: {{ releaseDate }}</p>
+        <p>Days Spent: {{ daySpent }}</p>
+      </div>
+      <div class="pb-10">
+        <div class="flex justify-between mb-4">
+          <div>
+            <p class="font-semibold">Patient Name:</p>
+            <p>{{ patientName }}</p>
+            <p class="font-semibold">Patient Contact:</p>
+            <p>{{ mobile }}</p>
+            <p class="font-semibold">Patient Address:</p>
+            <p>{{ address }}</p>
+          </div>
+          <div>
+            <p class="font-semibold">Doctor Name:</p>
+            <p>{{ assignedDoctorName }}</p>
+          </div>
+        </div>
+        <div>
+          <p class="font-semibold">Disease and Symptoms:</p>
+          <p>{{ symptoms }}</p>
+        </div>
+      </div>
+      <table class="w-full">
+        <tr class="bg-gray-100 font-semibold">
+          <td>Item</td>
+          <td>Price</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td>Room Charge of {{ daySpent }} Days</td>
+          <td>{{ roomCharge }}</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td>Doctor Fee</td>
+          <td>{{ doctorFee }}</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td>Medicine Cost</td>
+          <td>{{ medicineCost }}</td>
+        </tr>
+        <tr class="border-b border-gray-200">
+          <td>Other Charge</td>
+          <td>{{ otherCharge }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td class="border-t-2 border-gray-200 font-semibold">Total : {{ total }}</td>
+        </tr>
+      </table>
+      <div class="text-center block mt-8">
+        <a href="{% url 'download-pdf' patientId %}" class="inline-block bg-red-500 text-white py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-red-600">Download Invoice</a>
+      </div>
+    {% else %}
+      <div>
+        <h5 class="text-center">You Are Not Discharged By Hospital!</h5>
+        <h6 class="text-center">You Can Download Invoice after getting discharged.</h6>
+      </div>
+    {% endif %}
+  </div>
+</body>
+
+</html>
+
+{% endblock content %}

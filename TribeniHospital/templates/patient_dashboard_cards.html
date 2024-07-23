@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    <div class="bg-red-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{doctorName}}</h3>
+          <h4 class="text-lg">Doctor Name</h4>
+        </div>
+        <i class="fa fa-user-o text-green-500 text-6xl"></i>
+      </div>
+    </div>
+    <div class="bg-green-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{symptoms}}</h3>
+          <h4 class="text-lg">Symptoms</h4>
+        </div>
+        <i class="fa fa-info-circle text-orange-500 text-6xl"></i>
+      </div>
+    </div>
+    <div class="bg-blue-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{doctorMobile}}</h3>
+          <h4 class="text-lg">Doctor Contact</h4>
+        </div>
+        <i class="fa fa-mobile text-blue-500 text-6xl"></i>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+    <div class="bg-red-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{doctorAddress}}</h3>
+          <h4 class="text-lg">Doctor Address</h4>
+        </div>
+        <i class="fa fa-map-marker text-green-500 text-6xl"></i>
+      </div>
+    </div>
+    <div class="bg-green-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{doctorDepartment}}</h3>
+          <h4 class="text-lg">Doctor Department</h4>
+        </div>
+        <i class="fa fa-list-alt text-orange-500 text-6xl"></i>
+      </div>
+    </div>
+    <div class="bg-blue-500 p-4 text-white">
+      <div class="flex justify-between items-center">
+        <div class="flex flex-col justify-center">
+          <h3 class="text-3xl">{{admitDate}}</h3>
+          <h4 class="text-lg">Admit Date</h4>
+        </div>
+        <i class="fa fa-calendar-o text-blue-500 text-6xl"></i>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

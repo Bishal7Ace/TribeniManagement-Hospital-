@@ -1,0 +1,50 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mx-auto">
+    <div class="bg-white shadow-md rounded my-6">
+      <div class="border-b p-4">
+        <h2 class="text-center text-2xl font-bold">Receptionist</h2>
+      </div>
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Name</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Profile Picture</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Contact</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Address</th>
+            <th class="px-6 py-3 border-b-2 border-gray-300"></th>
+            <th class="px-6 py-3 border-b-2 border-gray-300"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in receptionist %}
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ r.get_name }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              <img src="{% static r.profile_pic.url %}" alt="Profile Pic" class="h-10 w-10 rounded-full" />
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ r.mobile }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ r.address }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              <a href="{% url 'update-receptionist' r.id %}" class="text-blue-500 hover:text-blue-700">Update</a>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              <a href="{% url 'delete-receptionist-from-hospital' r.id %}" class="text-red-500 hover:text-red-700">Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+
+{% endblock content %}

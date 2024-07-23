@@ -1,0 +1,57 @@
+{% extends 'receptionist_base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style>
+    .note {
+      @apply text-center h-20 bg-gradient-to-r from-blue-700 to-purple-700 text-white font-bold flex items-center justify-center;
+    }
+
+    .form-content {
+      @apply p-5 border border-gray-300 mb-5;
+    }
+
+    .form-control {
+      @apply border rounded-lg px-3 py-2 w-full;
+    }
+
+    .btnSubmit {
+      @apply border-none rounded-full py-2 px-4 cursor-pointer bg-blue-600 text-white;
+    }
+  </style>
+</head>
+
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <section class="bg-gray-200 dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+          <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-16">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Book Appointment Details</h2>
+          </div>
+    
+          <div class="form-content bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+            <div class="p-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <div class="form-group mb-4">
+                    {% render_field appointmentForm.description class="form-control shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none ring-blue-500 focus:ring" placeholder="Description" %}
+                  </div>
+                  <div class="form-group mb-4">
+                    {% render_field appointmentForm.doctorId class="form-control shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none ring-blue-500 focus:ring" placeholder="Doctor" %}
+                  </div>
+                  <div class="form-group mb-4">
+                    {% render_field appointmentForm.patientId  class="form-control shadow-sm w-full cursor-text appearance-none rounded border border-gray-300 py-2 px-3 leading-tight outline-none ring-blue-500 focus:ring" placeholder="Patient" %}
+                  </div>
+                </div>
+              </div>
+              <button type="submit" id="submitForm" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Book</button> 
+            </div>
+          </div>
+        </div>
+      </section>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

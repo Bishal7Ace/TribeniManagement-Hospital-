@@ -1,0 +1,33 @@
+{% extends 'homebase.html' %}
+{% load static %}
+
+{% block content %}
+<section class="bg-gray-200 dark:bg-gray-900">
+    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+      <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Welcome to Tribeni Hospital</h2>
+        <p class="mb-4">At Tribeni Hospital, our mission is to provide exceptional, compassionate care to our community while advancing medical knowledge and improving health outcomes for all our patients. Since our founding in 1960, we have been dedicated to serving the healthcare needs of our diverse population with integrity, innovation, and excellence.</p>
+        
+        <h2 class="mb-4 text-2xl tracking-tight font-bold text-gray-900 dark:text-white">Our History</h2>
+          <p> Tribeni Hospital was established in response to the growing need for quality healthcare services in our city. Over the past six decades, we have grown from a small community hospital to a leading medical center, offering a comprehensive range of medical specialties and services. Our commitment to excellence has earned us recognition as one of the top hospitals in the region.</p>
+
+          <h2 class="mb-4 text-2xl tracking-tight font-bold text-gray-900 dark:text-white">Our Values</h2>
+          <p> At City General Hospital, we are guided by the following core values:<br>
+            <uL>&#x2022;Patient-Centered Care: We prioritize the needs and preferences of our patients, delivering personalized care with compassion and respect.</uL>
+            <ul>&#x2022;Excellence: We strive for excellence in all that we do, from clinical care and research to education and community outreach.</ul>
+            <ul>&#x2022;Integrity: We uphold the highest ethical standards in our interactions with patients, families, colleagues, and the community.</ul>
+            <ul>&#x2022;Collaboration: We foster a culture of collaboration and teamwork among our staff, physicians, and partners to achieve the best possible outcomes for our patients.</ul>
+            <ul>&#x2022;Innovation: We embrace innovation and continuous improvement, seeking out new ways to enhance the quality, safety, and efficiency of healthcare delivery.</ul>
+          </p>
+      </div>
+
+
+      <div class="grid grid-cols-2 gap-4 mt-8">
+        <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1" />
+        <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2" />
+    </div>
+    
+    </div>
+  </section>
+
+{% endblock %}

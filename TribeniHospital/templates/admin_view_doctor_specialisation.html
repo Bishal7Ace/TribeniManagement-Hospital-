@@ -1,0 +1,37 @@
+
+{% extends 'admin_base.html' %}
+{% block content %}
+{% load static %}
+<div class="container mx-auto">
+  <div class="bg-white shadow-md rounded my-6">
+    <div class="border-b p-4">
+      <h2 class="text-center text-2xl font-bold">Doctors Applied For Registration</h2>
+    </div>
+    <table class="min-w-full">
+      <thead>
+        <tr>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Department</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Doctor Name</th>
+          <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 tracking-wider">Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for d in doctors %}
+        <tr>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{ d.department }}
+          </td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{ d.get_name }}
+          </td>
+          <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+            {{ d.mobile }}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+
+{% endblock content %}
